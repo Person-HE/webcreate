@@ -27,6 +27,7 @@
 - [Templates & Animation Templates](#templates--animation-templates)
 - [Quick Start](#quick-start)
 - [CLI Tool](#cli-tool)
+- [CLI Real Export Demo](#cli-real-export-demo)
 - [Architecture](#architecture)
 - [FAQ](#faq)
 - [Keywords (SEO / GEO)](#keywords-seo--geo)
@@ -276,6 +277,34 @@ node cli/bin.js gif   <input.json> -o out.gif  [-d seconds]
 - **Stagger reveal**: `stagger.enabled: true` + `delayPerElement`
 - **More than 2 layers**: segment-wise interpolation (frame-by-frame)
 - **ffmpeg fallback**: outputs `.webm` if ffmpeg is missing (auto-fallback); install ffmpeg for `.mp4`
+
+---
+
+## CLI Real Export Demo
+
+> All assets below are **real CLI outputs**, rendered from JSON keyframes via `node cli/bin.js ...`, with zero post-processing.
+
+### Static Export (PNG · roughjs hand-drawn)
+
+| Chart | Comic panels | Freehand |
+|-------|--------------|----------|
+| ![Hand-drawn chart](docs/assets/cli-demo/charts.png) | ![Hand-drawn comic](docs/assets/cli-demo/comic-panels.png) | ![Freehand strokes](docs/assets/cli-demo/freehand.png) |
+
+| House illustration | Multi-layer | Transparent background |
+|--------------------|-------------|------------------------|
+| ![House illustration](docs/assets/cli-demo/illu-house.png) | ![Multi-layer](docs/assets/cli-demo/multilayer.png) | ![Transparent PNG](docs/assets/cli-demo/transparent.png) |
+
+### Animation Export (GIF · client-side gif.js)
+
+![Animation anim1](docs/assets/cli-demo/anim1.gif)
+![Final check animation](docs/assets/cli-demo/final-check.gif)
+
+### HD Animation (WebM · physics engine)
+
+- [▶ Physics bounce — gravity (physics-bounce.webm)](docs/assets/cli-demo/physics-bounce.webm)
+- [▶ Spring morph — spring (morph-spring.webm)](docs/assets/cli-demo/morph-spring.webm)
+
+> These assets are exported by the CLI from the JSON files under `outputs/test/` (e.g. `charts.json`, `comic-panels.json`, `anim1.json`), and can serve as your own input/output references.
 
 ---
 

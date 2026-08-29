@@ -27,6 +27,7 @@
 - [模板库与动画模板](#模板库与动画模板)
 - [快速开始](#快速开始)
 - [CLI 命令行工具](#cli-命令行工具)
+- [CLI 真实导出演示](#cli-真实导出演示非模拟)
 - [项目架构](#项目架构)
 - [常见问题 FAQ](#常见问题-faq)
 - [关键词索引（SEO / GEO）](#关键词索引seo--geo)
@@ -276,6 +277,34 @@ node cli/bin.js gif   <input.json> -o out.gif  [-d 秒数]
 - **依次出现**：`stagger.enabled: true` + `delayPerElement`
 - **多于 2 层**时按层序分段插值（逐帧动画）
 - **ffmpeg 回退**：本机无完整 ffmpeg 时输出 `.webm`（自动回退）；装 ffmpeg 后可输出 `.mp4`
+
+---
+
+## 🎬 CLI 真实导出演示（非模拟）
+
+> 以下均为 **CLI 实际运行产物**，由 `node cli/bin.js ...` 从 JSON 关键帧渲染生成，未做任何后期修饰。
+
+### 静态导出（PNG · roughjs 手绘风）
+
+| 数据图表 | 漫画分镜 | 自由笔触 |
+|----------|----------|----------|
+| ![手绘数据图表](docs/assets/cli-demo/charts.png) | ![手绘漫画分镜](docs/assets/cli-demo/comic-panels.png) | ![自由笔触](docs/assets/cli-demo/freehand.png) |
+
+| 房屋插画 | 多图层合成 | 透明底导出 |
+|----------|-----------|-----------|
+| ![手绘房屋插画](docs/assets/cli-demo/illu-house.png) | ![多图层合成](docs/assets/cli-demo/multilayer.png) | ![透明底 PNG](docs/assets/cli-demo/transparent.png) |
+
+### 动画导出（GIF · 客户端 gif.js 编码）
+
+![动画示例 anim1](docs/assets/cli-demo/anim1.gif)
+![综合导出校验 final-check](docs/assets/cli-demo/final-check.gif)
+
+### 高清动画（WebM · 物理引擎驱动）
+
+- [▶ 物理弹跳 gravity（physics-bounce.webm）](docs/assets/cli-demo/physics-bounce.webm)
+- [▶ 弹簧形变 spring（morph-spring.webm）](docs/assets/cli-demo/morph-spring.webm)
+
+> 这些素材由仓库内 `outputs/test/` 下的 JSON（如 `charts.json`、`comic-panels.json`、`anim1.json`）经 CLI 导出得到，可作为你自己的输入输出范例参考。
 
 ---
 
