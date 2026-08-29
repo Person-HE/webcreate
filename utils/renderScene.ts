@@ -113,8 +113,28 @@ export const renderElement = (
     
     switch (element.type) {
       case 'rectangle':
-        // Draw rectangle with rough.js
-        rc.rectangle(0, 0, element.width, element.height, roughOptions);
+        // Draw rectangle with rough.js (rounded corners via polygon approximation)
+        if (element.cornerRadius > 0) {
+          const maxR = Math.min(element.cornerRadius, element.width / 2, element.height / 2);
+          const pts: [number, number][] = [];
+          const seg = 6;
+          const corners: Array<[number, number, number, number]> = [
+            [element.width - maxR, maxR, element.width, 0],
+            [element.width - maxR, element.height - maxR, element.width, element.height],
+            [maxR, element.height - maxR, 0, element.height],
+            [maxR, maxR, 0, 0],
+          ];
+          const startAngles = [ -Math.PI / 2, 0, Math.PI / 2, Math.PI ];
+          corners.forEach(([cx, cy], ci) => {
+            for (let s = 0; s <= seg; s++) {
+              const a = startAngles[ci] + (s / seg) * (Math.PI / 2);
+              pts.push([cx + maxR * Math.cos(a), cy + maxR * Math.sin(a)]);
+            }
+          });
+          rc.polygon(pts as any, roughOptions);
+        } else {
+          rc.rectangle(0, 0, element.width, element.height, roughOptions);
+        }
         break;
         
       case 'ellipse':

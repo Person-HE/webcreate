@@ -110,8 +110,13 @@ export const computeStaggeredT = (
   stagger?: StaggerConfig
 ): number => {
   if (!stagger || !stagger.enabled) return t;
-  const delay = Math.min(elementIndex * stagger.delayPerElement, stagger.maxDelay);
-  const adjustedT = (t - delay) / (1 - stagger.maxDelay);
+  const rawDelay = Math.min(elementIndex * stagger.delayPerElement, stagger.maxDelay);
+  // Normalize delays to [0, maxDelayFraction] so the longest-delayed element still finishes at t=1
+  const maxRaw = totalElements > 1
+    ? Math.min((totalElements - 1) * stagger.delayPerElement, stagger.maxDelay)
+    : 0;
+  const delay = maxRaw > 0 ? (rawDelay / maxRaw) * Math.min(maxRaw, 0.6) : 0;
+  const adjustedT = (t - delay) / (1 - delay);
   return Math.max(0, Math.min(1, adjustedT));
 };
 

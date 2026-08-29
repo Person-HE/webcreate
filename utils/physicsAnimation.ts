@@ -233,8 +233,15 @@ export const gravity = (t: number, config: GravityConfig): number => {
   const scale = 3;
   const gt = t * scale;
 
+  // Returns normalized easing progress 0→1 (0 = at start height, 1 = settled at ground).
+  // Physical height h is converted: progress = 1 - clamp(h - groundLevel).
+  const heightToProgress = (h: number): number =>
+    1 - Math.max(0, Math.min(1, h - groundLevel));
+
   const fallTime = Math.sqrt(2 * initialHeight / g);
-  if (gt <= fallTime) return initialHeight - 0.5 * g * gt * gt;
+  if (gt <= fallTime) {
+    return heightToProgress(initialHeight - 0.5 * g * gt * gt);
+  }
 
   let currentTime = fallTime;
   let bounceHeight = initialHeight;
@@ -246,11 +253,11 @@ export const gravity = (t: number, config: GravityConfig): number => {
       const localT = gt - currentTime;
       const halfBounce = bounceV / g;
       if (localT <= halfBounce) {
-        return groundLevel + bounceV * localT - 0.5 * g * localT * localT;
+        return heightToProgress(groundLevel + bounceV * localT - 0.5 * g * localT * localT);
       } else {
         const fallT = localT - halfBounce;
         const peakH = bounceV * halfBounce - 0.5 * g * halfBounce * halfBounce;
-        return groundLevel + peakH - 0.5 * g * fallT * fallT;
+        return heightToProgress(groundLevel + peakH - 0.5 * g * fallT * fallT);
       }
     }
     currentTime += bounceTime;
@@ -258,7 +265,7 @@ export const gravity = (t: number, config: GravityConfig): number => {
     if (bounceV < 0.1) break;
   }
 
-  return groundLevel;
+  return 1;
 };
 
 

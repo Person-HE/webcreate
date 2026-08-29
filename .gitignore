@@ -1,9 +1,76 @@
+# ---------- 依赖 ----------
 node_modules/
+.pnpm-store/
+
+# ---------- 构建产物 ----------
 dist/
+dist-ssr/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# ---------- 运行输出 / 导出产物 ----------
+outputs/
+dogfood-output/
+*.webm
+*.mp4
+*.gif
+!docs/assets/*.gif
+!docs/assets/*.webm
+!docs/assets/*.mp4
+
+# ---------- 环境变量与密钥（严禁提交） ----------
 .env
-.env.local
-.DS_Store
-*.log
-coverage/
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+*credentials*
+*secret*
+.npmrc
+
+# ---------- AI IDE / Agent 本地配置与内部文档（不对外） ----------
+.claude/
+.trae/
+.cursor/
+.qoder/
+.workbuddy/
+.codebuddy/
+CLAUDE.md
+AGENTS.md
+
+# ---------- 编辑器 / 系统 ----------
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# ---------- 日志与缓存 ----------
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+coverage/
+.cache/
+.temp/
+.tmp/
+
+# ---------- 本地临时调试脚本（不属于交付代码） ----------
+ping.mjs
+probe.mjs
+probe2.mjs
+pw-check.mjs
+smoke.mjs
+shot5.mjs
+shot5b.mjs
+vidprobe.mjs
+cap-one.mjs
+cap-all.mjs
+svg2png.mjs
+promo-capture.mjs
+page@*.webm
