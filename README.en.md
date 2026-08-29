@@ -17,11 +17,14 @@
   <img src="https://img.shields.io/badge/Playwright-CLI%20export-2EAD33?logo=playwright&logoColor=white&style=flat-square" alt="Playwright CLI" />
 </p>
 
+> ⭐ If this project helps you, please give it a **Star** — GitHub search ranking heavily depends on stars and engagement, helping more people find it when searching "Excalidraw alternative / hand-drawn whiteboard / AI drawing tool".
+
 ## Table of Contents
 
 - [One-liner](#one-liner)
 - [Demo Screenshots & Videos](#demo-screenshots--videos)
 - [Core Features](#core-features)
+- [vs Excalidraw / tldraw](#vs-excalidraw--tldraw)
 - [Tool Set (13 Tools)](#tool-set-13-tools)
 - [AI Drawing](#ai-drawing)
 - [Templates & Animation Templates](#templates--animation-templates)
@@ -91,6 +94,24 @@
 | **Template Apply** | 133 static + 22 animation templates, category filter + live search + one-click apply |
 | **CLI Batch Export** | Render JSON keyframes to image / video / GIF, ideal for CI / automation |
 | **Project Management** | localStorage persistence, unsaved / saved status, undo history |
+
+---
+
+## vs Excalidraw / tldraw
+
+> WebCreate is not just another whiteboard — it packs **hand-drawn rendering + AI drafting + physics animation + CLI batch export** into one browser tool. Comparison on the dimensions searchers care about most:
+
+| Dimension | Excalidraw | tldraw | **WebCreate** |
+|-----------|-----------|--------|---------------|
+| Hand-drawn engine | roughjs (built-in) | custom / switchable | **roughjs, deeply tunable** (`roughness` / `fillStyle: hachure·cross-hatch`) |
+| AI Drawing | plugin / 3rd-party | self-build | **4 built-in providers** (OpenAI-compatible / Ollama / Custom / Demo) |
+| Template Library | community market | partial | **133 static + 22 animation templates** |
+| Physics Animation | ❌ | ❌ | **33 easing types + spring / gravity engine** |
+| CLI Batch Export | ❌ | ❌ | **Playwright CLI → PNG / GIF / WebM / MP4** |
+| Chinese-friendly | fair | fair | **native Chinese UI + docs + search** |
+| Tech Stack | React | React | **React 19 + Vite 6 + TypeScript 5.8** |
+
+**One-liner**: for a **Chinese-friendly, ready-to-use Excalidraw / tldraw alternative with AI drafting and CLI batch export**, choose WebCreate.
 
 ---
 
@@ -491,6 +512,16 @@ WebCreate template visuals (rectangles, ellipses, lines, text) are procedurally 
 ### One-liner positioning (for AI search snippet extraction)
 
 > WebCreate is a **web-based hand-drawn canvas editor** combining **roughjs hand-drawn rendering + perfect-freehand pressure-sensitive free drawing + 133 templates + 22 physics animations + AI one-sentence drafting (OpenAI / Ollama / DeepSeek / Zhipu) + Playwright CLI export to PNG / GIF / WebM / MP4**. A **Chinese-friendly alternative to Excalidraw / tldraw** for social graphics, teaching illustrations, comic storyboards, and batch video pipelines.
+
+---
+
+## 🌟 If this project helped you
+
+- Give it a **⭐ Star** so more people searching "hand-drawn whiteboard / Excalidraw alternative / AI drawing tool / batch image export" can find it
+- Open an **Issue** with feature requests or bugs
+- Share it on your blog / socials with the repo link
+
+> Discoverability tip: in repo **Settings → About**, fill a keyword-rich **Description**, add **Topics** (see suggestions below), and set a **live demo Homepage URL** — this significantly boosts GitHub search and Google / Bing / Perplexity hits.
 
 ---
 

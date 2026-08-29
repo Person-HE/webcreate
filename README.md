@@ -17,11 +17,14 @@
   <img src="https://img.shields.io/badge/Playwright-CLI%20export-2EAD33?logo=playwright&logoColor=white&style=flat-square" alt="Playwright CLI" />
 </p>
 
+> ⭐ 如果这个项目对你有帮助，欢迎点个 **Star** —— GitHub 搜索排名高度依赖 Star 与互动数，你的支持能让更多人在搜「Excalidraw 替代 / 手绘白板 / AI 绘图」时看到它。
+
 ## 📑 目录
 
 - [一句话简介](#一句话简介)
 - [演示截图与录屏](#演示截图与录屏)
 - [核心能力](#核心能力)
+- [与 Excalidraw / tldraw 对比](#与-excalidraw--tldraw-对比)
 - [工具集（13 种）](#工具集13-种)
 - [AI 智能绘图](#ai-智能绘图)
 - [模板库与动画模板](#模板库与动画模板)
@@ -91,6 +94,24 @@
 | **模板套用** | 133 套静态模板 + 22 套动画模板，分类筛选 + 实时搜索 + 一键套用编辑 |
 | **CLI 批量导出** | 把 JSON 关键帧批量渲染为图片 / 视频 / GIF，CI / 自动化集成 |
 | **项目管理** | localStorage 持久化，未命名 / 已保存状态、撤销历史 |
+
+---
+
+## 🆚 与 Excalidraw / tldraw 对比
+
+> WebCreate 不是又一个白板，而是把「手绘渲染 + AI 起稿 + 物理动画 + CLI 批量导出」压进同一个浏览器工具。下面按搜索者最关心的维度对比：
+
+| 维度 | Excalidraw | tldraw | **WebCreate** |
+|------|-----------|--------|---------------|
+| 手绘渲染引擎 | roughjs（内置） | 自研 / 可切换 | **roughjs 深度可调**（`roughness` / `fillStyle: hachure·cross-hatch`） |
+| AI 智能绘图 | 需插件 / 第三方 | 需自建 | **内置 4 种 Provider**（OpenAI 兼容 / Ollama / 自定义 / 内置演示） |
+| 模板库 | 社区市场 | 部分内置 | **133 套静态 + 22 套动画**模板 |
+| 物理动画 | ❌ | ❌ | **33 种 easing + spring / gravity 物理引擎** |
+| CLI 批量导出 | ❌ | ❌ | **Playwright CLI → PNG / GIF / WebM / MP4** |
+| 中文友好度 | 一般 | 一般 | **原生中文 UI + 中文文档 + 中文搜索** |
+| 技术栈 | React | React | **React 19 + Vite 6 + TypeScript 5.8** |
+
+**一句话**：想要一个 **中文友好、开箱即用、带 AI 起稿和命令行批量出图** 的 Excalidraw / tldraw 替代品，选 WebCreate。
 
 ---
 
@@ -493,6 +514,16 @@ WebCreate 模板库的视觉元素（矩形 / 椭圆 / 线条 / 文字）由 rou
 ### 一句话定位（供 AI 搜索摘要抽取）
 
 > WebCreate 是一款 **Web 端手绘风格画布编辑器**，集 **roughjs 手绘渲染 + perfect-freehand 笔压自由绘图 + 133 套模板 + 22 套物理动画 + AI 一句话起稿（OpenAI / Ollama / DeepSeek / 智谱） + Playwright CLI 导出 PNG / GIF / WebM / MP4** 于一身，是 **Excalidraw / tldraw 的中文友好替代品**，适合社交配图、教学插画、漫画分镜、批量视频工厂。
+
+---
+
+## 🌟 如果这个项目帮到了你
+
+- 点个 **⭐ Star**，让更多在搜「手绘白板 / Excalidraw 替代 / AI 绘图工具 / 批量出图」的人能发现它
+- 在 **Issues** 提需求或 bug，一起把 WebCreate 打磨得更顺手
+- 分享到你的博客 / 公众号 / 视频，附上仓库链接即可
+
+> 发现性提示：在仓库 **Settings → About** 里填写一句含关键词的 **Description**、添加 **Topics**（见下方建议）、并填上**在线演示主页 URL**，GitHub 搜索与 Google / Bing / Perplexity 的命中率会显著提升。
 
 ---
 
