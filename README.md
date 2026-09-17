@@ -43,7 +43,7 @@
 **WebCreate** 是一款开箱即用的 **Web 端手绘风格创作工具**，集 **画布编辑器 + 模板库 + AI 起稿 + 物理动画 + 多端导出** 于一身：
 
 - 编辑器基于 React 19 + Vite 6 + roughjs，**手绘风格笔触 + 压力感应自由绘图**
-- 内置 **133 套静态模板 + 22 套动画模板**，覆盖社交配图、卡片、贺卡、漫画、数据图等场景
+- 内置 **24 套静态模板 + 10 套动画模板**，覆盖社交配图、卡片、贺卡、漫画、数据图等场景
 - 集成 **OpenAI 兼容 / Ollama / 自定义 / 内置演示** 4 种 AI 服务，文字描述即可起稿
 - 配套 **Playwright CLI**，把 JSON 关键帧渲染为 **PNG / GIF / WebM / MP4**，便于自动化产出
 
@@ -57,7 +57,7 @@
 
 ![WebCreate 三栏工作区](docs/assets/02-studio.png)
 
-### 模板库 · 133 套精选
+### 模板库 · 24 套精选
 
 ![WebCreate 模板库](docs/assets/03-templates.png)
 
@@ -91,7 +91,7 @@
 | **GIF 动图** | 客户端 gif.js 编码，多图层顺序播放，无需服务端 |
 | **物理动画** | 33 种 easing（spring / gravity / easeOutBack / easeOutBounce ...），支持 stagger 错峰、关键帧插值 |
 | **AI 起稿** | 一句话生成图（OpenAI 兼容 + Ollama + 自定义 + 演示四种模式），画笔粗细 + 主题精修 |
-| **模板套用** | 133 套静态模板 + 22 套动画模板，分类筛选 + 实时搜索 + 一键套用编辑 |
+| **模板套用** | 24 套静态模板 + 10 套动画模板，分类筛选 + 实时搜索 + 一键套用编辑 |
 | **CLI 批量导出** | 把 JSON 关键帧批量渲染为图片 / 视频 / GIF，CI / 自动化集成 |
 | **项目管理** | localStorage 持久化，未命名 / 已保存状态、撤销历史 |
 
@@ -105,7 +105,7 @@
 |------|-----------|--------|---------------|
 | 手绘渲染引擎 | roughjs（内置） | 自研 / 可切换 | **roughjs 深度可调**（`roughness` / `fillStyle: hachure·cross-hatch`） |
 | AI 智能绘图 | 需插件 / 第三方 | 需自建 | **内置 4 种 Provider**（OpenAI 兼容 / Ollama / 自定义 / 内置演示） |
-| 模板库 | 社区市场 | 部分内置 | **133 套静态 + 22 套动画**模板 |
+| 模板库 | 社区市场 | 部分内置 | **24 套静态 + 10 套动画**模板 |
 | 物理动画 | ❌ | ❌ | **33 种 easing + spring / gravity 物理引擎** |
 | CLI 批量导出 | ❌ | ❌ | **Playwright CLI → PNG / GIF / WebM / MP4** |
 | 中文友好度 | 一般 | 一般 | **原生中文 UI + 中文文档 + 中文搜索** |
@@ -151,8 +151,8 @@
 
 ## 📚 模板库与动画模板
 
-- **静态模板（133 套）**：社交配图、贺卡、漫画、心情卡、日记手帐、励志卡、心愿卡、节日卡 ……
-- **动画模板（22 套）**：基于物理引擎的关键帧动画，效果丝滑自然
+- **静态模板（24 套）**：社交配图、贺卡、漫画、心情卡、日记手帐、励志卡、心愿卡、节日卡 ……
+- **动画模板（10 套）**：基于物理引擎的关键帧动画，效果丝滑自然
 - **分类筛选**：全部 / 社交配图 / 贺卡 / 日记手帐 / 趣味 / 商务
 - **搜索**：模糊匹配标题 + 标签
 
@@ -358,8 +358,8 @@ webcreate/
 │   └── aiService.ts             # AI 业务封装
 │
 ├── data/                        # 内置数据
-│   ├── templates.ts             # 133 套静态模板
-│   └── animationTemplates.ts    # 22 套动画模板
+│   ├── templates.ts             # 24 套静态模板
+│   └── animationTemplates.ts    # 10 套动画模板
 │
 ├── utils/                       # 5 个工具函数
 │   ├── elementTransformers.ts   # 元素变换
@@ -491,6 +491,50 @@ WebCreate 模板库的视觉元素（矩形 / 椭圆 / 线条 / 文字）由 rou
 
 ---
 
+## 📊 量化数据（可复现）
+
+采集环境：**Windows 11 · Node.js v24.12.0 · npm 11.6.2**  
+采集日期：**2026-09-17**  
+复现命令：
+
+```bash
+npm ci
+npm run build
+# 模板计数
+node scripts/count-templates.mjs
+# 产物体积
+Get-ChildItem dist -Recurse -File | Measure-Object Length -Sum
+```
+
+| 指标 | 数值 |
+|------|------|
+| 静态模板（`data/templates.ts` 实测） | **24** |
+| 动画模板（`data/animationTemplates.ts` 实测） | **10** |
+| `vite build` 耗时 | **9.04 s** |
+| 端到端 `npm run build` 耗时 | **10.8 s** |
+| 转换模块数 | 1767 |
+| `dist/` 文件数 | 2（`index.html` + 主 JS chunk） |
+| `dist/` 总体积 | **461.9 KB**（主 JS 460.3 KB · gzip **130.4 KB**） |
+| 演示资源 `docs/assets` | 9 文件 · 5.19 MB |
+
+> CLI 导出依赖本机 Chromium + Playwright，不计入纯静态托管产物。
+
+## ☁️ 部署到 Cloudflare Pages
+
+```bash
+npx wrangler login
+npm run build
+npx wrangler pages deploy dist --project-name=webcreate --branch=main
+```
+
+| 项 | 值 |
+|----|----|
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| SPA fallback | 已附带 `vercel.json`；Pages 可用 `/* /index.html 200` |
+
+---
+
 ## 🔎 关键词索引（SEO / GEO）
 
 > 本节用于让搜索引擎、AI 搜索（Bing / Perplexity / SearchGPT / 文心 / Kimi）、GEO 生成式引擎更精准地命中本仓库。
@@ -513,7 +557,7 @@ WebCreate 模板库的视觉元素（矩形 / 椭圆 / 线条 / 文字）由 rou
 
 ### 一句话定位（供 AI 搜索摘要抽取）
 
-> WebCreate 是一款 **Web 端手绘风格画布编辑器**，集 **roughjs 手绘渲染 + perfect-freehand 笔压自由绘图 + 133 套模板 + 22 套物理动画 + AI 一句话起稿（OpenAI / Ollama / DeepSeek / 智谱） + Playwright CLI 导出 PNG / GIF / WebM / MP4** 于一身，是 **Excalidraw / tldraw 的中文友好替代品**，适合社交配图、教学插画、漫画分镜、批量视频工厂。
+> WebCreate 是一款 **Web 端手绘风格画布编辑器**，集 **roughjs 手绘渲染 + perfect-freehand 笔压自由绘图 + 24 套模板 + 10 套物理动画 + AI 一句话起稿（OpenAI / Ollama / DeepSeek / 智谱） + Playwright CLI 导出 PNG / GIF / WebM / MP4** 于一身，是 **Excalidraw / tldraw 的中文友好替代品**，适合社交配图、教学插画、漫画分镜、批量视频工厂。
 
 ---
 
