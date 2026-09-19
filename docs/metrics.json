@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-19T11:04:35.989Z",
+  "project": "webcreate",
+  "commands": {
+    "build": "npm run build",
+    "test": null,
+    "metrics": "node scripts/metrics.mjs"
+  },
+  "environment": {
+    "platform": "Windows_NT 10.0.26200 (x64)",
+    "cpus": 16,
+    "cpuModel": "AMD Ryzen 7 7735H with Radeon Graphics",
+    "memoryGB": 15.2,
+    "node": "v24.12.0",
+    "npm": "11.6.2",
+    "timezone": "Asia/Shanghai"
+  },
+  "git": {
+    "commit": "00ae9fa6256a90356c6a7ae6a3fcb865df9b2e71",
+    "shortCommit": "00ae9fa",
+    "branch": "main",
+    "dirty": true
+  },
+  "build": {
+    "clean": true,
+    "durationMs": 13105,
+    "durationS": 13.1
+  },
+  "source": {
+    "roots": [
+      ".",
+      "components",
+      "services",
+      "cli"
+    ],
+    "files": 60,
+    "totalLines": 13633,
+    "codeLines": 11672,
+    "commentLines": 565,
+    "blankLines": 1396,
+    "commentRatio": 4.1,
+    "byLanguage": {
+      "TypeScript (React)": {
+        "files": 17,
+        "lines": 6395
+      },
+      "TypeScript": {
+        "files": 23,
+        "lines": 5927
+      },
+      "JavaScript (ESM)": {
+        "files": 14,
+        "lines": 1044
+      },
+      "HTML": {
+        "files": 3,
+        "lines": 226
+      },
+      "JavaScript": {
+        "files": 3,
+        "lines": 41
+      }
+    }
+  },
+  "bundle": {
+    "root": "dist",
+    "files": 3,
+    "rawBytes": 461955,
+    "rawMB": 0.44,
+    "gzipBytes": 130740,
+    "gzipMB": 0.12,
+    "compressionRatio": 28.3,
+    "largestFiles": [
+      {
+        "file": "assets/index-y9pLtXgl.js",
+        "rawBytes": 460263,
+        "gzipBytes": 129989
+      },
+      {
+        "file": "index.html",
+        "rawBytes": 1671,
+        "gzipBytes": 710
+      },
+      {
+        "file": "_redirects",
+        "rawBytes": 21,
+        "gzipBytes": 41
+      }
+    ],
+    "byType": {
+      ".js": {
+        "files": 1,
+        "rawBytes": 460263,
+        "gzipBytes": 129989
+      },
+      ".html": {
+        "files": 1,
+        "rawBytes": 1671,
+        "gzipBytes": 710
+      },
+      "(none)": {
+        "files": 1,
+        "rawBytes": 21,
+        "gzipBytes": 41
+      }
+    },
+    "counts": {
+      "js": 1,
+      "css": 0,
+      "font": 0,
+      "wasm": 0,
+      "image": 0,
+      "html": 1
+    }
+  },
+  "tests": {
+    "configured": false
+  },
+  "dependencies": {
+    "runtime": 7,
+    "dev": 6,
+    "directTotal": 13
+  }
+}

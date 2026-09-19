@@ -11,6 +11,7 @@
     "build": "vite build",
     "build:cli": "vite build --config vite.cli.config.ts",
     "preview": "vite preview",
+    "metrics": "node scripts/metrics.mjs --src .,components,services,cli --dist dist",
     "cli": "npm run build:cli && node cli/bin.js",
     "cli:image": "npm run cli -- image",
     "cli:video": "npm run cli -- video"
