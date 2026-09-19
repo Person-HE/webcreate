@@ -11,6 +11,16 @@ Paint with pressure-aware freehand strokes and rough.js shapes, compose them on 
 
 **→ [webcreate.pages.dev](https://webcreate.pages.dev)**
 
+| | |
+| --- | --- |
+| ![Studio](docs/assets/02-studio.png) | ![Templates](docs/assets/03-templates.png) |
+| Layered studio | Template library |
+| ![AI draw](docs/assets/05-ai-draw.png) | ![Panels](docs/assets/08-panels.png) |
+
+Motion samples: [`09-demo-draw.webm`](docs/assets/09-demo-draw.webm) ·
+[`10-demo-animation.webm`](docs/assets/10-demo-animation.webm) ·
+[`cli-demo/`](docs/assets/cli-demo)
+
 ## Capabilities
 
 - **Painting** — freehand with pressure taper, eraser, fill, text, image, selection, and shape primitives (rect, circle, diamond, line, arrow).
